@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "PikassaSDK"
-  spec.version      = "0.1.0-alpha.1"
+  spec.version      = "0.1.0-alpha.2"
   spec.license      = "MIT"
 
   spec.summary      = "Pikassa SDK"
@@ -14,8 +14,7 @@ Pod::Spec.new do |spec|
   spec.author             = { 'PIMPAY KASSA LLC' => 'support@pikassa.io' }
 
   spec.requires_arc       = true
-  spec.source             = { :http => "https://github.com/pikassa-payments/pikassa-sdk-ios/releases/download/${spec.version}/PikassaSDK.framework.zip" }
-  spec.source_files       = "PikassaSDK.framework"
+  spec.source             = { :http => "https://github.com/pikassa-payments/pikassa-sdk-ios/releases/download/#{spec.version}/PikassaSDK.framework.zip" }
   spec.swift_version      = "5.1"
   spec.ios.deployment_target     = '11.0'
   spec.tvos.deployment_target    = '9.0'
