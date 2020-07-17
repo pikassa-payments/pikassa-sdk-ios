@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardDetailsViewController" customModule="Pikassa" customModuleProvider="target">
+            <connections>
+                <outlet property="cardHolderTextField" destination="9XZ-hT-zxk" id="bsB-JL-69i"/>
+                <outlet property="containerBottomConstraint" destination="dY0-PA-fed" id="dGS-7t-c2z"/>
+                <outlet property="cvcTextField" destination="XIB-nn-SeO" id="VTn-9y-P8q"/>
+                <outlet property="expTextField" destination="H6F-q4-pqs" id="ADd-NA-mbc"/>
+                <outlet property="panTextField" destination="x99-YX-Su5" id="JRm-ZB-c7T"/>
+                <outlet property="payButton" destination="642-uE-4bS" id="Zo2-hs-44c"/>
+                <outlet property="topBar" destination="nvT-gz-AIz" id="guh-w2-2mR"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="735"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-1W-yrK">
+                    <rect key="frame" x="0.0" y="200" width="320" height="535"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CQ0-8b-7b0">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="735"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvT-gz-AIz" customClass="TopBarView" customModule="Pikassa" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="p6e-EG-C0S"/>
+                            </constraints>
+                        </view>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Gd0-r1-G2U">
+                            <rect key="frame" x="0.0" y="60" width="320" height="675"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Hn-EO-Hgs" customClass="RoundedCornersView" customModule="Pikassa" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="705"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="sqq-eT-Nd1">
+                                            <rect key="frame" x="0.0" y="40" width="320" height="665"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSf-N8-o4v" customClass="OrderView" customModule="Pikassa" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" placeholder="YES" id="j68-Y1-ypO"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fN5-s7-ZMY">
+                                                    <rect key="frame" x="0.0" y="90" width="320" height="509"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a2L-E9-Pdm">
+                                                            <rect key="frame" x="32" y="80" width="256" height="328"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTf-0D-hW2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="24"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="P8J-g2-GQU">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="24" id="DFw-uW-Zp3"/>
+                                                                                <constraint firstAttribute="height" constant="24" id="dt9-KK-OpQ"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оплата банковской картой" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WD2-ak-Ew4">
+                                                                            <rect key="frame" x="38" y="2.5" width="203.5" height="19"/>
+                                                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                                            <color key="textColor" red="0.14901960784313725" green="0.19607843137254902" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="P8J-g2-GQU" firstAttribute="leading" secondItem="HTf-0D-hW2" secondAttribute="leading" id="6hH-OT-auO"/>
+                                                                        <constraint firstItem="WD2-ak-Ew4" firstAttribute="leading" secondItem="P8J-g2-GQU" secondAttribute="trailing" constant="14" id="VE7-WR-hYZ"/>
+                                                                        <constraint firstItem="P8J-g2-GQU" firstAttribute="top" secondItem="HTf-0D-hW2" secondAttribute="top" id="evp-Li-COl"/>
+                                                                        <constraint firstItem="WD2-ak-Ew4" firstAttribute="centerY" secondItem="HTf-0D-hW2" secondAttribute="centerY" id="ooV-3s-IOl"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="P8J-g2-GQU" secondAttribute="bottom" id="qWU-hB-dtE"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="xk2-1I-x5N">
+                                                                    <rect key="frame" x="0.0" y="44" width="256" height="249"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x99-YX-Su5" customClass="TextField" customModule="Pikassa" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="256" height="65"/>
+                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="65" placeholder="YES" id="X2N-yl-cNZ"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9XZ-hT-zxk" customClass="TextField" customModule="Pikassa" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="92" width="256" height="65"/>
+                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        </view>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="p5X-3n-aLG">
+                                                                            <rect key="frame" x="0.0" y="184" width="256" height="65"/>
+                                                                            <subviews>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6F-q4-pqs" customClass="TextField" customModule="Pikassa" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="179" height="65"/>
+                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                </view>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIB-nn-SeO" customClass="TextField" customModule="Pikassa" customModuleProvider="target">
+                                                                                    <rect key="frame" x="187" y="0.0" width="69" height="65"/>
+                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                </view>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="9XZ-hT-zxk" firstAttribute="height" secondItem="x99-YX-Su5" secondAttribute="height" id="2LB-Fy-X6m"/>
+                                                                        <constraint firstItem="H6F-q4-pqs" firstAttribute="width" secondItem="9XZ-hT-zxk" secondAttribute="width" multiplier="0.7" id="RKB-h8-qzc"/>
+                                                                        <constraint firstItem="p5X-3n-aLG" firstAttribute="height" secondItem="x99-YX-Su5" secondAttribute="height" id="Vef-rk-eKr"/>
+                                                                    </constraints>
+                                                                </stackView>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fi1-9y-2d1">
+                                                                    <rect key="frame" x="0.0" y="313" width="256" height="15"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="nl9-WU-DAU">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="12" height="15"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="15" id="AX9-Vh-Hkc"/>
+                                                                                <constraint firstAttribute="width" constant="12" id="z7a-U8-Z2b"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Данные карты передаются в зашифрованном виде" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdq-U4-Wcq">
+                                                                            <rect key="frame" x="20" y="1.5" width="243" height="12"/>
+                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                                                            <color key="textColor" red="0.58823529411764708" green="0.6588235294117647" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="nl9-WU-DAU" firstAttribute="top" secondItem="fi1-9y-2d1" secondAttribute="top" id="Pm6-lC-ouu"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="nl9-WU-DAU" secondAttribute="bottom" id="YvO-KA-k21"/>
+                                                                        <constraint firstItem="nl9-WU-DAU" firstAttribute="leading" secondItem="fi1-9y-2d1" secondAttribute="leading" id="tRM-A4-K1Q"/>
+                                                                        <constraint firstItem="xdq-U4-Wcq" firstAttribute="leading" secondItem="nl9-WU-DAU" secondAttribute="trailing" constant="8" id="wA7-v2-I1a"/>
+                                                                        <constraint firstItem="xdq-U4-Wcq" firstAttribute="centerY" secondItem="fi1-9y-2d1" secondAttribute="centerY" id="ysU-hD-2rW"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="642-uE-4bS" customClass="Button" customModule="Pikassa" customModuleProvider="target">
+                                                            <rect key="frame" x="32" y="461" width="256" height="48"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="48" id="baE-EY-NRV"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Оплатить"/>
+                                                            <connections>
+                                                                <action selector="didTapPayButton:" destination="-1" eventType="touchUpInside" id="nZY-Wm-Ecp"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="642-uE-4bS" firstAttribute="leading" secondItem="fN5-s7-ZMY" secondAttribute="leading" constant="32" id="2EK-AK-NKS"/>
+                                                        <constraint firstItem="a2L-E9-Pdm" firstAttribute="leading" secondItem="fN5-s7-ZMY" secondAttribute="leading" constant="32" id="D1z-Mc-cG2"/>
+                                                        <constraint firstItem="642-uE-4bS" firstAttribute="top" secondItem="a2L-E9-Pdm" secondAttribute="bottom" constant="53" id="LQY-Jh-5Jh"/>
+                                                        <constraint firstAttribute="bottom" secondItem="642-uE-4bS" secondAttribute="bottom" id="M0x-91-5fb"/>
+                                                        <constraint firstItem="a2L-E9-Pdm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fN5-s7-ZMY" secondAttribute="top" constant="80" id="Z4p-gJ-c5N"/>
+                                                        <constraint firstAttribute="trailing" secondItem="a2L-E9-Pdm" secondAttribute="trailing" constant="32" id="fz7-Iq-ax0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="642-uE-4bS" secondAttribute="trailing" constant="32" id="uTf-Sw-q4e"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gu3-m0-JoT">
+                                                    <rect key="frame" x="0.0" y="599" width="320" height="66"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikassaLogoSmall" translatesAutoresizingMaskIntoConstraints="NO" id="zAD-FW-jgw">
+                                                            <rect key="frame" x="122" y="10" width="76" height="16"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="zAD-FW-jgw" firstAttribute="top" secondItem="gu3-m0-JoT" secondAttribute="top" constant="10" id="QjF-XW-LNA"/>
+                                                        <constraint firstItem="zAD-FW-jgw" firstAttribute="centerX" secondItem="gu3-m0-JoT" secondAttribute="centerX" id="dAX-HP-ucq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zAD-FW-jgw" secondAttribute="bottom" constant="40" id="jg4-C1-gOb"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="sqq-eT-Nd1" secondAttribute="trailing" id="FeZ-VV-Oft"/>
+                                        <constraint firstItem="sqq-eT-Nd1" firstAttribute="leading" secondItem="3Hn-EO-Hgs" secondAttribute="leading" id="fYs-a3-iU4"/>
+                                        <constraint firstAttribute="bottom" secondItem="sqq-eT-Nd1" secondAttribute="bottom" id="nFl-Oc-rQK"/>
+                                        <constraint firstItem="sqq-eT-Nd1" firstAttribute="top" secondItem="3Hn-EO-Hgs" secondAttribute="top" constant="40" id="z4U-yk-Hst"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="3Hn-EO-Hgs" firstAttribute="leading" secondItem="Gd0-r1-G2U" secondAttribute="leading" id="bAe-Gc-Ou6"/>
+                                <constraint firstAttribute="bottom" secondItem="3Hn-EO-Hgs" secondAttribute="bottom" id="dY0-PA-fed"/>
+                                <constraint firstItem="3Hn-EO-Hgs" firstAttribute="top" secondItem="Gd0-r1-G2U" secondAttribute="top" id="ioE-0Y-Zaf"/>
+                                <constraint firstAttribute="trailing" secondItem="3Hn-EO-Hgs" secondAttribute="trailing" id="qe3-EG-97w"/>
+                                <constraint firstItem="3Hn-EO-Hgs" firstAttribute="width" secondItem="Gd0-r1-G2U" secondAttribute="width" id="qjH-Bu-I5s"/>
+                                <constraint firstItem="3Hn-EO-Hgs" firstAttribute="height" secondItem="Gd0-r1-G2U" secondAttribute="height" priority="750" id="yxe-Wf-NvL"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.30980392159999998" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rVf-1W-yrK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="69n-mE-jjd"/>
+                <constraint firstAttribute="trailing" secondItem="CQ0-8b-7b0" secondAttribute="trailing" id="91g-bd-Xwe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rVf-1W-yrK" secondAttribute="trailing" id="GKO-Mf-AZZ"/>
+                <constraint firstAttribute="bottom" secondItem="CQ0-8b-7b0" secondAttribute="bottom" id="gwZ-R9-BrX"/>
+                <constraint firstAttribute="bottom" secondItem="rVf-1W-yrK" secondAttribute="bottom" id="nlP-8H-6Qo"/>
+                <constraint firstItem="CQ0-8b-7b0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vol-Pk-uag"/>
+                <constraint firstItem="CQ0-8b-7b0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yaS-y3-LoG"/>
+                <constraint firstItem="rVf-1W-yrK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yg2-by-3cq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-43" y="95"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="card" width="20" height="16"/>
+        <image name="pikassaLogoSmall" width="76" height="16"/>
+        <image name="shield" width="12" height="16"/>
+    </resources>
+</document>

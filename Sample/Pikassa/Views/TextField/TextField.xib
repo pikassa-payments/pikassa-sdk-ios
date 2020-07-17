@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextField" customModule="Pikassa" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="JNN-ML-0GF" id="xgs-T9-S8T"/>
+                <outlet property="errorLabel" destination="z4c-zu-fkc" id="Vya-UO-eUP"/>
+                <outlet property="lineView" destination="Yb5-ly-fyP" id="jVr-8w-rJf"/>
+                <outlet property="textField" destination="lvl-xN-lqq" id="sMM-GM-3z5"/>
+                <outlet property="titleLabel" destination="Day-x4-kUj" id="KaU-xJ-NxY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNN-ML-0GF">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="tUX-lj-wCj">
+                            <rect key="frame" x="16" y="10" width="288" height="35"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Day-x4-kUj">
+                                    <rect key="frame" x="0.0" y="0.0" width="288" height="14.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                    <color key="textColor" red="0.69019607843137254" green="0.0" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lvl-xN-lqq">
+                                    <rect key="frame" x="0.0" y="18.5" width="288" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="textFieldEditingChanged:" destination="-1" eventType="editingChanged" id="92K-Uf-Jva"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="NSV-aS-xGq"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="tUX-lj-wCj" firstAttribute="leading" secondItem="JNN-ML-0GF" secondAttribute="leading" constant="16" id="IKn-6d-e6I"/>
+                        <constraint firstAttribute="bottom" secondItem="tUX-lj-wCj" secondAttribute="bottom" constant="10" id="i7R-do-enr"/>
+                        <constraint firstItem="tUX-lj-wCj" firstAttribute="top" secondItem="JNN-ML-0GF" secondAttribute="top" constant="10" id="lhY-qV-dQ6"/>
+                        <constraint firstAttribute="trailing" secondItem="tUX-lj-wCj" secondAttribute="trailing" constant="16" id="sDl-0o-wE9"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-ly-fyP">
+                    <rect key="frame" x="0.0" y="52" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.69019607839999997" green="0.0" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="YnC-4E-HZi"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4c-zu-fkc">
+                    <rect key="frame" x="16" y="57" width="288" height="14.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                    <color key="textColor" red="0.69019607839999997" green="0.0" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="z4c-zu-fkc" firstAttribute="top" secondItem="Yb5-ly-fyP" secondAttribute="bottom" constant="4" id="9vx-4O-bDJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z4c-zu-fkc" secondAttribute="trailing" constant="16" id="Cpm-DI-dRS"/>
+                <constraint firstItem="z4c-zu-fkc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="DJv-VO-eT3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JNN-ML-0GF" secondAttribute="trailing" id="ek6-am-KRY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yb5-ly-fyP" secondAttribute="trailing" id="gaS-2X-BJ2"/>
+                <constraint firstItem="JNN-ML-0GF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hUj-Br-zXw"/>
+                <constraint firstItem="Yb5-ly-fyP" firstAttribute="top" secondItem="JNN-ML-0GF" secondAttribute="bottom" id="lMe-Ur-q94"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Yb5-ly-fyP" secondAttribute="bottom" constant="15" id="lfA-c7-5nZ"/>
+                <constraint firstItem="Yb5-ly-fyP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pKo-8V-K4r"/>
+                <constraint firstItem="JNN-ML-0GF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qkS-UB-83Q"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="22.5" y="-191.25"/>
+        </view>
+    </objects>
+</document>
