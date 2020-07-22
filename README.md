@@ -16,7 +16,7 @@
 
   ```shell
   source 'https://github.com/CocoaPods/Specs.git'
-  platform :ios, '8.0'
+  platform :ios, '11.0'
   use_frameworks!
 
   target 'Your Target Name' do
