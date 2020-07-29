@@ -22,15 +22,17 @@ public struct PayResponse: Decodable {
 
 
 internal class PayRequest: Request<PayResponse> {
-    let cardDetails: PayRequest.Body
+    let encodedBody: Data
     let invoiceId: String
 
-    init(cardDetails: PayRequest.Body, invoiceId: String) {
-        self.cardDetails = cardDetails
+    init(
+        encodedBody: Data,
+        invoiceId: String) {
+        self.encodedBody = encodedBody
         self.invoiceId = invoiceId
-
+        
         super.init()
-
+        
         self.method = .put
     }
 
@@ -46,12 +48,12 @@ internal class PayRequest: Request<PayResponse> {
     }
 
     override func body() -> Data? {
-        return try? JSONEncoder().encode(self.cardDetails)
+        return self.encodedBody
     }
 
-    struct Body: Codable {
+    struct Body<T: Codable>: Codable {
         let requestId: String
         let paymentMethod: String
-        let details: BankCardDetails
+        let paymentData: T
     }
 }

@@ -15,20 +15,20 @@ public class Pikassa {
     public static func setUp(apiKey: String) {
         Pikassa.apiKey = apiKey
     }
-
-    public func sendCardData(_ cardData: BankCardDetails,
-                             invoiceId: String,
-                             didSuccessBlock: ((PayResponse) -> Void)?,
-                             didFailBlock: ((Error) -> Void)?) {
-        self.doSendCardData(cardData,
-                            invoiceId: invoiceId,
-                            requestId: UUID().uuidString,
-                            apiKey: Pikassa.apiKey,
-                            didSuccessBlock: didSuccessBlock,
-                            didFailBlock: didFailBlock)
+    
+    public func sendPaymentData(method: PaymentMethods,
+                                invoiceId: String,
+                                didSuccessBlock: ((PayResponse) -> Void)?,
+                                didFailBlock: ((Error) -> Void)?) {
+        self.doSendPaymentData(method,
+                               invoiceId: invoiceId,
+                               requestId: UUID().uuidString,
+                               apiKey: Pikassa.apiKey,
+                               didSuccessBlock: didSuccessBlock,
+                               didFailBlock: didFailBlock)
     }
 
-    private func doSendCardData(_ cardData: BankCardDetails,
+    private func doSendPaymentData(_ method: PaymentMethods,
                                 invoiceId: String,
                                 requestId: String,
                                 apiKey: String,
@@ -39,9 +39,11 @@ public class Pikassa {
             return
         }
 
-        let body: PayRequest.Body = PayRequest.Body(requestId: requestId, paymentMethod: PaymentMethods.bankCard.rawValue, details: cardData)
 
-        let req: PayRequest = PayRequest(cardDetails: body, invoiceId: invoiceId)
+        let req: PayRequest = PayRequest(
+            encodedBody: method.paymentData(forRequestId: requestId),
+            invoiceId: invoiceId)
+        
         req.perform { (result: Result<PayResponse>) in
             switch result {
             case .success(let response):
@@ -52,28 +54,44 @@ public class Pikassa {
         }
     }
 }
+public protocol PaymentDetails: Codable {}
 
-public struct BankCardDetails: Codable {
+public struct BankCardDetails: PaymentDetails {
     let pan: String
     let cardHolder: String
     let cvc: String
     let expYear: String
     let expMonth: String
-    let someParam: [String: String]?
 
-    public init(pan: String, cardHolder: String, cvc: Int, expYear: Int, expMonth: Int, params: [String: String]? = nil) {
+    public init(pan: String, cardHolder: String, cvc: Int, expYear: Int, expMonth: Int) {
         self.pan = pan
         self.cardHolder = cardHolder
         self.cvc = "\(cvc)"
         self.expYear = "\(expYear)"
         self.expMonth = "\(expMonth)"
-        self.someParam = params
     }
 }
 
-public enum PaymentMethods: String {
-    case bankCard = "BankCard";
-    case webMoney = "WMR";
-    case yandexMoney = "YandexMoney";
-    case mobile = "Mobile";
+public enum PaymentMethods {
+    case bankCard(details: BankCardDetails)
+    //TODO: Support other methods
+    //case webMoney = "WMR";
+    //case yandexMoney = "YandexMoney";
+    //case mobile = "Mobile";
+    internal func getApiAlias() -> String {
+        switch self {
+        case .bankCard:
+            return "BankCard"
+        }
+    }
+    
+    internal func paymentData(forRequestId requestId: String) -> Data {
+        switch self {
+            case .bankCard(let details):
+                let body = PayRequest.Body(requestId: requestId,
+                                           paymentMethod: getApiAlias(),
+                                           paymentData: details)
+                return (try? JSONEncoder().encode(body)) ?? Data()
+        }
+    }
 }
