@@ -8,11 +8,11 @@
   gem install cocoapods
   ```
 
-2. Создайте файл Podfile\
+2. Создайте файл Podfile
 
   > CocoaPods предоставляет команду ```pod init``` для создания Podfile с настройками по умолчанию.
 
-3. Добавьте зависимости в `Podfile`.\
+3. Добавьте зависимости в `Podfile`
 
   ```shell
   source 'https://github.com/CocoaPods/Specs.git'
