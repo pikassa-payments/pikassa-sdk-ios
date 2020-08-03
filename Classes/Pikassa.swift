@@ -7,12 +7,11 @@
 
 import Foundation
 
-
 public class Pikassa {
     public static let shared: Pikassa = Pikassa()
     private(set) static var apiKey: String!
 
-    public static func setUp(apiKey: String) {
+    public static func setup(apiKey: String) {
         Pikassa.apiKey = apiKey
     }
     
