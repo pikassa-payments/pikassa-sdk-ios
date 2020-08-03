@@ -51,7 +51,7 @@ func sendPaymentData(
 
 где ```method``` - один из поддерживаемых способов оплаты (далее, в п. 3) ```invoiceId``` - номер счета на оплату ```didSuccessBlock``` - результат успешной передачи карточных данных, возвращает информацию с сервера в случае успеха (```PayResponse```), ```didFailBlock``` - ошибка при передаче данных, возвращает стандартную ошибку (```Error```).
 
-3. На данный момент поддерживаются два метода оплаты - картой (с готовой структурой ```BankCardDetails```) и с кастомными полями:
+3. На данный момент поддерживаются два метода оплаты - картой (с готовой структурой ```BankCardDetails```) и с кастомным словарем полей:
 ```swift
 public enum PaymentMethods {
     case bankCard(details: BankCardDetails)
@@ -91,7 +91,7 @@ let cardDetails: BankCardDetails = BankCardDetails(
             didSuccessBlock: { ... },
             didFailBlock: { ... })
 ```
-[Перечеь методо оплаты|https://pikassa.io/docs/#74002ad38d]
+[Перечень методов оплаты](https://pikassa.io/docs/#74002ad38d)
 
 6. В случае успеха выполнения отправки данных, в onSuccess приходит ответ ResponseData, структура которого выглядит следующим образом:
 ```swift
