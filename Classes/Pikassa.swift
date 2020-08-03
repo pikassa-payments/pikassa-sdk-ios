@@ -90,7 +90,7 @@ public enum PaymentMethods {
             case .bankCard(let details):
                 let body = PayRequest.Body(requestId: requestId,
                                            paymentMethod: getApiAlias(),
-                                           paymentData: details)
+                                           details: details)
                 return (try? JSONEncoder().encode(body)) ?? Data()
         }
     }

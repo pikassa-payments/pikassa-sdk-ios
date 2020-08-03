@@ -54,6 +54,6 @@ internal class PayRequest: Request<PayResponse> {
     struct Body<T: Codable>: Codable {
         let requestId: String
         let paymentMethod: String
-        let paymentData: T
+        let details: T
     }
 }

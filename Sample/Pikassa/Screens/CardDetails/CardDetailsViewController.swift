@@ -118,7 +118,7 @@ class CardDetailsViewController: UIViewController {
             expMonth: expDate.mm)
         
         Pikassa.shared.sendPaymentData(
-            method: .bankCard(details: cardDetails),
+            method: PaymentMethods.bankCard(details: cardDetails),
             invoiceId: self.invoiceId,
             didSuccessBlock: { [weak self] (response: PayResponse) in
                 if let redirectURLStr: String = response.redirect?.url, let redirectURL: URL = URL(string: redirectURLStr) {
