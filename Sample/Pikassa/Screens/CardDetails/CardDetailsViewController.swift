@@ -117,7 +117,7 @@ class CardDetailsViewController: UIViewController {
             expYear: expDate.yy,
             expMonth: expDate.mm)
         
-        Pikassa.shared.sendPaymentData(
+        Pikassa.sendPaymentData(
             method: PaymentMethods.bankCard(details: cardDetails),
             invoiceId: self.invoiceId,
             didSuccessBlock: { [weak self] (response: PayResponse) in

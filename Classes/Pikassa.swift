@@ -8,18 +8,17 @@
 import Foundation
 
 public class Pikassa {
-    public static let shared: Pikassa = Pikassa()
     private(set) static var apiKey: String!
 
     public static func setup(apiKey: String) {
         Pikassa.apiKey = apiKey
     }
     
-    public func sendPaymentData(method: PaymentMethods,
+    public static func sendPaymentData(method: PaymentMethods,
                                 invoiceId: String,
                                 didSuccessBlock: ((PayResponse) -> Void)?,
                                 didFailBlock: ((Error) -> Void)?) {
-        self.doSendPaymentData(method,
+        Pikassa.doSendPaymentData(method,
                                invoiceId: invoiceId,
                                requestId: UUID().uuidString,
                                apiKey: Pikassa.apiKey,
@@ -27,7 +26,7 @@ public class Pikassa {
                                didFailBlock: didFailBlock)
     }
 
-    private func doSendPaymentData(_ method: PaymentMethods,
+    private static func doSendPaymentData(_ method: PaymentMethods,
                                 invoiceId: String,
                                 requestId: String,
                                 apiKey: String,
