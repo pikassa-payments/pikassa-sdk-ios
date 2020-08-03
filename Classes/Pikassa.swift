@@ -74,7 +74,10 @@ public struct BankCardDetails: PaymentDetails {
 
 public enum PaymentMethods {
     case bankCard(details: BankCardDetails)
-    //TODO: Support other methods
+    
+    case custom(details: [String: String])
+    
+    //TODO: Support types for other methods
     //case webMoney = "WMR";
     //case yandexMoney = "YandexMoney";
     //case mobile = "Mobile";
@@ -82,16 +85,24 @@ public enum PaymentMethods {
         switch self {
         case .bankCard:
             return "BankCard"
+        case .custom(details: let details):
+            return details["paymentMethod"] ?? "Unknown"
         }
     }
     
     internal func paymentData(forRequestId requestId: String) -> Data {
         switch self {
-            case .bankCard(let details):
-                let body = PayRequest.Body(requestId: requestId,
-                                           paymentMethod: getApiAlias(),
-                                           details: details)
-                return (try? JSONEncoder().encode(body)) ?? Data()
+        case .bankCard(let details):
+            let body = PayRequest.Body(requestId: requestId,
+                                       paymentMethod: getApiAlias(),
+                                       details: details)
+            return (try? JSONEncoder().encode(body)) ?? Data()
+            
+        case .custom(let details):
+            let body = PayRequest.Body(requestId: requestId,
+                                       paymentMethod: getApiAlias(),
+                                       details: details.filter({ $0.key != "paymentMethod" }))
+            return (try? JSONEncoder().encode(body)) ?? Data()
         }
     }
 }
