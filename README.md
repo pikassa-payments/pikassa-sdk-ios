@@ -101,7 +101,7 @@ public struct PayResponse: Decodable {
     public let redirect: Redirect?  //ссылка на редирект 3-d secure. Может быть нулевым, если аутентификация не нужна при платеже
 
     public struct Redirect: Decodable {
-        public let url: String                //url для редиректа пользователя
+        public let url: String                //ссылка для перенаправления пользователя. Например, для карт может потребоваться перенаправление пользователя на web-страницу ввода кода 3DS.
         public let method: String             //метод оплаты
         public let params: [[String: String]] //дополнительные возвращаемые параметры
     }
