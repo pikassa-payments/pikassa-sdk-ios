@@ -94,16 +94,21 @@ let cardDetails: BankCardDetails = BankCardDetails(
 [Перечень методов оплаты](https://pikassa.io/docs/#74002ad38d)
 
 6. В случае успеха выполнения отправки данных, в onSuccess приходит ответ ResponseData, структура которого выглядит следующим образом:
+
+В случае успеха выполнения отправки данных, в onSuccess приходит ответ ResponseData, структура которого выглядит следующим образом:
 ```swift
 public struct PayResponse: Decodable {
-    public let uuid: String         //идентификатор платежа
-    public let requestId: String    //идентификатор запроса
-    public let redirect: Redirect?  //ссылка на редирект 3-d secure. Может быть нулевым, если аутентификация не нужна при платеже
-
-    public struct Redirect: Decodable {
-        public let url: String                //ссылка для перенаправления пользователя. Например, для карт может потребоваться перенаправление пользователя на web-страницу ввода кода 3DS.
-        public let method: String             //метод оплаты
-        public let params: [[String: String]] //дополнительные возвращаемые параметры
-    }
+    public let uuid: String
+    public let requestId: String
+    public let redirect: Redirect?
 }
 ```
+uuid - идентификатор платежа; requestId - идентификатор запроса redirect - ссылка для перенаправления пользователя. Например, для карт может потребоваться перенаправление пользователя на страницу ввода кода 3DS. Может быть нулевым, если аутентификация не нужна при платеже. В случае, если ненулевое поле, то структура следующая:
+```swift
+public struct Redirect: Decodable {
+    public let url: String
+    public let method: String             //метод оплаты
+    public let params: [[String: String]] //дополнительные возвращаемые параметры
+}
+```
+Здесь основным параметром является url, в котором хранится ссылка на редирект, по которому нужно пройти для подтверждения платежа.
