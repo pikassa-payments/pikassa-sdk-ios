@@ -94,8 +94,6 @@ let cardDetails: BankCardDetails = BankCardDetails(
 [Перечень методов оплаты](https://pikassa.io/docs/#74002ad38d)
 
 6. В случае успеха выполнения отправки данных, в onSuccess приходит ответ ResponseData, структура которого выглядит следующим образом:
-
-В случае успеха выполнения отправки данных, в onSuccess приходит ответ ResponseData, структура которого выглядит следующим образом:
 ```swift
 public struct PayResponse: Decodable {
     public let uuid: String
