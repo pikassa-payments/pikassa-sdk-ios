@@ -12,7 +12,7 @@ import PikassaSDK
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Pikassa.setUp(apiKey: "be4d9881-4af5-4969-bac0-dfe8491a333a")
+        Pikassa.setup(apiKey: "be4d9881-4af5-4969-bac0-dfe8491a333a")
 
         return true
     }

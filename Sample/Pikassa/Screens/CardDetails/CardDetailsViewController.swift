@@ -110,20 +110,29 @@ class CardDetailsViewController: UIViewController {
 
         let orderId: String = self.orderId
 
-        let cardDetails: BankCardDetails = BankCardDetails(pan: pan, cardHolder: cardHolder, cvc: cvc, expYear: expDate.yy, expMonth: expDate.mm)
-        Pikassa.shared.sendCardData(cardDetails, invoiceId: self.invoiceId, didSuccessBlock: { [weak self] (response: PayResponse) in
-            if let redirectURLStr: String = response.redirect?.url, let redirectURL: URL = URL(string: redirectURLStr) {
-                let webViewVC: WebViewController = WebViewController()
-                webViewVC.url = redirectURL
-                webViewVC.redirectURLs = (self?.redirectURLs ?? [])
-                webViewVC.didDismissBlock = {
+        let cardDetails: BankCardDetails = BankCardDetails(
+            pan: pan,
+            cardHolder: cardHolder,
+            cvc: cvc,
+            expYear: expDate.yy,
+            expMonth: expDate.mm)
+        
+        Pikassa.sendPaymentData(
+            method: PaymentMethods.bankCard(details: cardDetails),
+            invoiceId: self.invoiceId,
+            didSuccessBlock: { [weak self] (response: PayResponse) in
+                if let redirectURLStr: String = response.redirect?.url, let redirectURL: URL = URL(string: redirectURLStr) {
+                    let webViewVC: WebViewController = WebViewController()
+                    webViewVC.url = redirectURL
+                    webViewVC.redirectURLs = (self?.redirectURLs ?? [])
+                    webViewVC.didDismissBlock = {
+                        self?.routeToInvoiceStatusScreen(invoiceUUID: orderId)
+                    }
+                    
+                    self?.present(webViewVC, animated: true, completion: nil)
+                } else {
                     self?.routeToInvoiceStatusScreen(invoiceUUID: orderId)
                 }
-
-                self?.present(webViewVC, animated: true, completion: nil)
-            } else {
-                self?.routeToInvoiceStatusScreen(invoiceUUID: orderId)
-            }
         }) { [weak self] (error: Error) in
             self?.presentAlert(title: "Ошибка", message: error.localizedDescription, action: nil)
         }
